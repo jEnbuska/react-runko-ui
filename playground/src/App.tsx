@@ -7,6 +7,10 @@ import {
   Textarea,
   Checkbox,
   Radio,
+  FieldDescription,
+  FieldError,
+  TooltipTrigger,
+  TooltipContent,
   cn,
 } from "react-runko-ui";
 import "./App.css";
@@ -391,6 +395,85 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* Field Helpers and Tooltips */}
+        <section className="demo-section full-width">
+          <h2>Field Helpers & Tooltips</h2>
+          <div className="demo-content">
+            <div className="helper-demo">
+              <h3>FieldDescription & FieldError</h3>
+              <div className="form-group">
+                <Label htmlFor="username-demo" required>
+                  Username
+                </Label>
+                <Input
+                  id="username-demo"
+                  type="text"
+                  placeholder="Enter username"
+                  aria-describedby="username-description username-error"
+                  variant={showError ? "error" : undefined}
+                />
+                <FieldDescription id="username-description">
+                  Must be 3-20 characters, alphanumeric only
+                </FieldDescription>
+                {showError && (
+                  <FieldError id="username-error">
+                    Username is too short
+                  </FieldError>
+                )}
+                <div style={{ marginTop: "1rem" }}>
+                  <Button
+                    onClick={() => setShowError(!showError)}
+                    variant="secondary"
+                  >
+                    Toggle Error State
+                  </Button>
+                </div>
+              </div>
+
+              <h3 style={{ marginTop: "2rem" }}>Tooltip Components</h3>
+              <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+                <Label>
+                  Password
+                  <TooltipTrigger
+                    aria-describedby="password-tooltip"
+                    style={{ marginLeft: "0.5rem" }}
+                    onMouseEnter={() => setShowSuccess(true)}
+                    onMouseLeave={() => setShowSuccess(false)}
+                  >
+                    ℹ️
+                  </TooltipTrigger>
+                </Label>
+                {showSuccess && (
+                  <TooltipContent id="password-tooltip">
+                    Password must contain at least 8 characters, including uppercase, lowercase, and numbers
+                  </TooltipContent>
+                )}
+              </div>
+
+              <div className="usage-notes" style={{ marginTop: "2rem" }}>
+                <h4>Key Features:</h4>
+                <ul>
+                  <li>
+                    <strong>FieldDescription:</strong> Provides helpful context for form fields
+                  </li>
+                  <li>
+                    <strong>FieldError:</strong> Displays validation errors with role="alert" for accessibility
+                  </li>
+                  <li>
+                    <strong>TooltipTrigger:</strong> Button element to trigger tooltips
+                  </li>
+                  <li>
+                    <strong>TooltipContent:</strong> Displays tooltip content with role="tooltip"
+                  </li>
+                  <li>Use aria-describedby to link helpers/tooltips with form fields</li>
+                  <li>All components use :where() selectors for easy styling</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Complete Form Example */}
         <section className="demo-section full-width">
           <h2>Complete Form Example</h2>

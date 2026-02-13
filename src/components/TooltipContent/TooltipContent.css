@@ -1,0 +1,13 @@
+/* TooltipContent styles using :where() for easy overriding */
+:where(.runko-tooltip-content) {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #fff;
+  background-color: #212529;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  max-width: 200px;
+  word-wrap: break-word;
+}

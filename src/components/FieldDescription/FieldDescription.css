@@ -1,0 +1,9 @@
+/* FieldDescription styles using :where() for easy overriding */
+:where(.runko-field-description) {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6c757d;
+  margin-top: 0.25rem;
+}

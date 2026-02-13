@@ -23,6 +23,18 @@ export type { CheckboxProps } from "./components/Checkbox/Checkbox";
 export { Radio } from "./components/Radio/Radio";
 export type { RadioProps } from "./components/Radio/Radio";
 
+export { FieldDescription } from "./components/FieldDescription/FieldDescription";
+export type { FieldDescriptionProps } from "./components/FieldDescription/FieldDescription";
+
+export { FieldError } from "./components/FieldError/FieldError";
+export type { FieldErrorProps } from "./components/FieldError/FieldError";
+
+export { TooltipTrigger } from "./components/TooltipTrigger/TooltipTrigger";
+export type { TooltipTriggerProps } from "./components/TooltipTrigger/TooltipTrigger";
+
+export { TooltipContent } from "./components/TooltipContent/TooltipContent";
+export type { TooltipContentProps } from "./components/TooltipContent/TooltipContent";
+
 // Utilities
 export { cn } from "./utils";
 

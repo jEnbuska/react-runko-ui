@@ -1,0 +1,9 @@
+/* FieldError styles using :where() for easy overriding */
+:where(.runko-field-error) {
+  display: block;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #dc3545;
+  margin-top: 0.25rem;
+}
