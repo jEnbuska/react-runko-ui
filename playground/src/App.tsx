@@ -48,6 +48,9 @@ function App() {
               <Button variant="danger" onClick={() => alert("Danger!")}>
                 Danger Button
               </Button>
+              <Button variant="text" onClick={() => alert("Text!")}>
+                Text Button
+              </Button>
               <Button disabled>Disabled Button</Button>
             </div>
           </div>

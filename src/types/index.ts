@@ -7,7 +7,7 @@ export type RunkoVariant = "error" | "success";
 /**
  * Button-specific variant type for semantic styling
  */
-export type ButtonVariant = "primary" | "secondary" | "danger";
+export type ButtonVariant = "primary" | "secondary" | "danger" | "text";
 
 /**
  * Direction for form field layout

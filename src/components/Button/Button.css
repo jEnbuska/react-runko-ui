@@ -49,3 +49,10 @@
   color: white;
   border-color: #dc3545;
 }
+
+/* Variant: Text */
+:where(.runko-button--text) {
+  background-color: transparent;
+  color: inherit;
+  border-color: transparent;
+}

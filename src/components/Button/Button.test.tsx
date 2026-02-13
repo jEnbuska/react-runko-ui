@@ -20,6 +20,12 @@ describe("Button", () => {
     expect(button).toHaveClass("runko-button--primary");
   });
 
+  it("applies text variant class", () => {
+    const { container } = render(<Button variant="text">Click me</Button>);
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("runko-button--text");
+  });
+
   it("applies custom variant class names", () => {
     const { container } = render(
       <Button
