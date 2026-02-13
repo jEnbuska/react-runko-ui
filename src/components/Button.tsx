@@ -1,6 +1,6 @@
-import React, { ButtonHTMLAttributes, forwardRef } from 'react';
+import type { ComponentProps } from 'react';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ComponentProps<'button'> {
   /**
    * Button variant for semantic styling
    */
@@ -11,18 +11,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * Button component - A basic button element with minimal styling
  * Layout and spacing should be handled by the parent
  */
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant, className, ...props }, ref) => {
-    const classes = [
-      'runko-button',
-      variant && `runko-button--${variant}`,
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ');
+export function Button({ variant, className, ...props }: ButtonProps) {
+  const classes = [
+    'runko-button',
+    variant && `runko-button--${variant}`,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-    return <button ref={ref} className={classes} {...props} />;
-  }
-);
+  return <button className={classes} {...props} />;
+}
 
-Button.displayName = 'Button';

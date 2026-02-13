@@ -1,18 +1,14 @@
-import React, { InputHTMLAttributes, forwardRef } from 'react';
+import type { ComponentProps } from 'react';
 
-export interface RadioProps
-  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'type'> {}
+export interface RadioProps extends Omit<ComponentProps<'input'>, 'type'> {}
 
 /**
  * Radio component - A basic radio input with minimal styling
  * Layout and spacing should be handled by the parent
  */
-export const Radio = forwardRef<HTMLInputElement, RadioProps>(
-  ({ className, ...props }, ref) => {
-    const classes = ['runko-radio', className].filter(Boolean).join(' ');
+export function Radio({ className, ...props }: RadioProps) {
+  const classes = ['runko-radio', className].filter(Boolean).join(' ');
 
-    return <input ref={ref} type="radio" className={classes} {...props} />;
-  }
-);
+  return <input type="radio" className={classes} {...props} />;
+}
 
-Radio.displayName = 'Radio';

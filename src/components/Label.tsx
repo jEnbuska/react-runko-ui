@@ -1,6 +1,6 @@
-import React, { LabelHTMLAttributes, forwardRef } from 'react';
+import type { ComponentProps } from 'react';
 
-export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends ComponentProps<'label'> {
   /**
    * Whether the label is for a required field
    */
@@ -11,17 +11,14 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
  * Label component - A basic label element with minimal styling
  * Layout and spacing should be handled by the parent
  */
-export const Label = forwardRef<HTMLLabelElement, LabelProps>(
-  ({ required, className, children, ...props }, ref) => {
-    const classes = ['runko-label', className].filter(Boolean).join(' ');
+export function Label({ required, className, children, ...props }: LabelProps) {
+  const classes = ['runko-label', className].filter(Boolean).join(' ');
 
-    return (
-      <label ref={ref} className={classes} {...props}>
-        {children}
-        {required && <span className="runko-label__required"> *</span>}
-      </label>
-    );
-  }
-);
+  return (
+    <label className={classes} {...props}>
+      {children}
+      {required && <span className="runko-label__required"> *</span>}
+    </label>
+  );
+}
 
-Label.displayName = 'Label';

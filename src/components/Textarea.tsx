@@ -1,7 +1,6 @@
-import React, { TextareaHTMLAttributes, forwardRef } from 'react';
+import type { ComponentProps } from 'react';
 
-export interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends ComponentProps<'textarea'> {
   /**
    * Textarea variant for different states
    */
@@ -12,18 +11,15 @@ export interface TextareaProps
  * Textarea component - A basic textarea element with minimal styling
  * Layout and spacing should be handled by the parent
  */
-export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ variant, className, ...props }, ref) => {
-    const classes = [
-      'runko-textarea',
-      variant && `runko-textarea--${variant}`,
-      className,
-    ]
-      .filter(Boolean)
-      .join(' ');
+export function Textarea({ variant, className, ...props }: TextareaProps) {
+  const classes = [
+    'runko-textarea',
+    variant && `runko-textarea--${variant}`,
+    className,
+  ]
+    .filter(Boolean)
+    .join(' ');
 
-    return <textarea ref={ref} className={classes} {...props} />;
-  }
-);
+  return <textarea className={classes} {...props} />;
+}
 
-Textarea.displayName = 'Textarea';
