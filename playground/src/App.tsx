@@ -280,6 +280,117 @@ function App() {
           </div>
         </section>
 
+        {/* VariantClassNames Demo */}
+        <section className="demo-section full-width">
+          <h2>VariantClassNames Feature Demo</h2>
+          <div className="demo-content">
+            <p>
+              Components now support custom className mapping for variants via the{" "}
+              <code>variantClassNames</code> prop:
+            </p>
+
+            <div className="variant-demo">
+              <div className="comparison-grid">
+                <div className="comparison-item">
+                  <h3>Default Variant Classes</h3>
+                  <div className="demo-inputs">
+                    <Input
+                      variant="error"
+                      placeholder="Default error styling"
+                    />
+                    <Input
+                      variant="success"
+                      placeholder="Default success styling"
+                    />
+                    <Button variant="primary">Default Primary</Button>
+                  </div>
+                  <code className="code-block">
+                    {`<Input variant="error" />
+// Uses: runko-input--error
+
+<Button variant="primary" />
+// Uses: runko-button--primary`}
+                  </code>
+                </div>
+
+                <div className="comparison-item">
+                  <h3>Custom VariantClassNames</h3>
+                  <div className="demo-inputs">
+                    <Input
+                      variant="error"
+                      variantClassNames={{
+                        error: "custom-error-input",
+                      }}
+                      placeholder="Custom error styling"
+                      style={{
+                        borderColor: "#ff6b6b",
+                        backgroundColor: "#fff5f5",
+                      }}
+                    />
+                    <Input
+                      variant="success"
+                      variantClassNames={{
+                        success: "custom-success-input",
+                      }}
+                      placeholder="Custom success styling"
+                      style={{
+                        borderColor: "#51cf66",
+                        backgroundColor: "#f0fff4",
+                      }}
+                    />
+                    <Button
+                      variant="primary"
+                      variantClassNames={{
+                        primary: "custom-primary-btn",
+                      }}
+                      style={{
+                        backgroundColor: "#7950f2",
+                        borderColor: "#7950f2",
+                      }}
+                    >
+                      Custom Primary
+                    </Button>
+                  </div>
+                  <code className="code-block">
+                    {`<Input 
+  variant="error"
+  variantClassNames={{
+    error: "custom-error-input"
+  }}
+/>
+// Uses: custom-error-input
+
+<Button 
+  variant="primary"
+  variantClassNames={{
+    primary: "custom-primary-btn"
+  }}
+/>
+// Uses: custom-primary-btn`}
+                  </code>
+                </div>
+              </div>
+
+              <div className="usage-notes">
+                <h4>💡 Key Points:</h4>
+                <ul>
+                  <li>
+                    <code>variantClassNames</code> allows you to override default
+                    variant classes
+                  </li>
+                  <li>
+                    Perfect for integrating with CSS frameworks like Tailwind
+                  </li>
+                  <li>
+                    Falls back to default class if variant not in mapping
+                  </li>
+                  <li>Fully type-safe with TypeScript</li>
+                  <li>100% backward compatible - optional prop</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
         {/* Complete Form Example */}
         <section className="demo-section full-width">
           <h2>Complete Form Example</h2>

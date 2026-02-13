@@ -216,3 +216,78 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* Variant Demo Styles */
+.variant-demo {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comparison-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+.comparison-item {
+  background: #f7fafc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+}
+
+.comparison-item h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.1rem;
+  color: #2d3748;
+}
+
+.demo-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.code-block {
+  display: block;
+  padding: 1rem;
+  background: white;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.85rem;
+  white-space: pre;
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+}
+
+.usage-notes {
+  background: #edf2f7;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+.usage-notes h4 {
+  margin: 0 0 1rem 0;
+  color: #2d3748;
+}
+
+.usage-notes ul {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.usage-notes li {
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+}
+
+.usage-notes code {
+  background: white;
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+  border: 1px solid #cbd5e0;
+}
