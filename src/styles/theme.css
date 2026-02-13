@@ -39,6 +39,9 @@
     /* --- Elevation --- */
     --runko-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
     --runko-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+    /* --- Accent Color --- */
+    accent-color: var(--runko-primary);
   }
 
   /* --- Automatic Dark Mode Sync --- */
@@ -66,6 +69,9 @@
 
       --runko-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
       --runko-shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.6);
+
+      /* --- Accent Color --- */
+      accent-color: var(--runko-primary);
     }
   }
 }
