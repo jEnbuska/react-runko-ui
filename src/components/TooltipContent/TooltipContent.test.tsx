@@ -27,7 +27,7 @@ describe("TooltipContent", () => {
 
   it("passes through native props including id", () => {
     const { container } = render(
-      <TooltipContent id="tooltip-1">Tooltip</TooltipContent>,
+      <TooltipContent id="tooltip-1">Tooltip</TooltipContent>
     );
     const element = container.firstChild;
     expect(element).toHaveAttribute("id", "tooltip-1");
@@ -35,10 +35,42 @@ describe("TooltipContent", () => {
 
   it("allows custom className", () => {
     const { container } = render(
-      <TooltipContent className="custom-tooltip">Tooltip</TooltipContent>,
+      <TooltipContent className="custom-tooltip">Tooltip</TooltipContent>
     );
     const element = container.firstChild;
     expect(element).toHaveClass("runko-tooltip-content");
     expect(element).toHaveClass("custom-tooltip");
+  });
+
+  it("applies default position 'top'", () => {
+    const { container } = render(<TooltipContent>Tooltip</TooltipContent>);
+    const element = container.firstChild;
+    expect(element).toHaveClass("runko-tooltip-content--top");
+  });
+
+  it("applies specified position", () => {
+    const { container } = render(
+      <TooltipContent position="bottom">Tooltip</TooltipContent>
+    );
+    const element = container.firstChild;
+    expect(element).toHaveClass("runko-tooltip-content--bottom");
+  });
+
+  it("applies position class for all variants", () => {
+    const positions: Array<"top" | "bottom" | "left" | "right"> = [
+      "top",
+      "bottom",
+      "left",
+      "right",
+    ];
+
+    positions.forEach((position) => {
+      const { container, unmount } = render(
+        <TooltipContent position={position}>Tooltip</TooltipContent>
+      );
+      const element = container.firstChild;
+      expect(element).toHaveClass(`runko-tooltip-content--${position}`);
+      unmount();
+    });
   });
 });

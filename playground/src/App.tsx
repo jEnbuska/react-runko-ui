@@ -9,6 +9,7 @@ import {
   Radio,
   FieldDescription,
   FieldError,
+  Tooltip,
   TooltipTrigger,
   TooltipContent,
   cn,
@@ -434,8 +435,55 @@ function App() {
                 </div>
               </div>
 
-              <h3 style={{ marginTop: "2rem" }}>Tooltip Components</h3>
-              <div style={{ display: "flex", gap: "1rem", alignItems: "center" }}>
+              <h3 style={{ marginTop: "2rem" }}>Tooltip Component (New!)</h3>
+              <p>The new Tooltip component automatically handles positioning and visibility:</p>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "2rem",
+                  flexWrap: "wrap",
+                  marginTop: "1rem",
+                }}
+              >
+                <div>
+                  <p>Top (default):</p>
+                  <Tooltip content="This tooltip appears on top" position="top">
+                    <Button variant="secondary">Hover me</Button>
+                  </Tooltip>
+                </div>
+                <div>
+                  <p>Bottom:</p>
+                  <Tooltip
+                    content="This tooltip appears on bottom"
+                    position="bottom"
+                  >
+                    <Button variant="secondary">Hover me</Button>
+                  </Tooltip>
+                </div>
+                <div>
+                  <p>Left:</p>
+                  <Tooltip
+                    content="This tooltip appears on left"
+                    position="left"
+                  >
+                    <Button variant="secondary">Hover me</Button>
+                  </Tooltip>
+                </div>
+                <div>
+                  <p>Right:</p>
+                  <Tooltip
+                    content="This tooltip appears on right"
+                    position="right"
+                  >
+                    <Button variant="secondary">Hover me</Button>
+                  </Tooltip>
+                </div>
+              </div>
+
+              <h3 style={{ marginTop: "2rem" }}>Legacy Tooltip Pattern</h3>
+              <div
+                style={{ display: "flex", gap: "1rem", alignItems: "center" }}
+              >
                 <Label>
                   Password
                   <TooltipTrigger
@@ -449,7 +497,8 @@ function App() {
                 </Label>
                 {showSuccess && (
                   <TooltipContent id="password-tooltip">
-                    Password must contain at least 8 characters, including uppercase, lowercase, and numbers
+                    Password must contain at least 8 characters, including
+                    uppercase, lowercase, and numbers
                   </TooltipContent>
                 )}
               </div>
@@ -458,19 +507,32 @@ function App() {
                 <h4>Key Features:</h4>
                 <ul>
                   <li>
-                    <strong>FieldDescription:</strong> Provides helpful context for form fields
+                    <strong>FieldDescription:</strong> Provides helpful context
+                    for form fields
                   </li>
                   <li>
-                    <strong>FieldError:</strong> Displays validation errors with role="alert" for accessibility
+                    <strong>FieldError:</strong> Displays validation errors with
+                    role="alert" for accessibility
                   </li>
                   <li>
-                    <strong>TooltipTrigger:</strong> Button element to trigger tooltips
+                    <strong>Tooltip (New):</strong> Wrapper component with
+                    automatic positioning and visibility
                   </li>
                   <li>
-                    <strong>TooltipContent:</strong> Displays tooltip content with role="tooltip"
+                    <strong>TooltipTrigger:</strong> Button element to trigger
+                    tooltips
                   </li>
-                  <li>Use aria-describedby to link helpers/tooltips with form fields</li>
-                  <li>All components use :where() selectors for easy styling</li>
+                  <li>
+                    <strong>TooltipContent:</strong> Displays tooltip content
+                    with role="tooltip"
+                  </li>
+                  <li>
+                    Use aria-describedby to link helpers/tooltips with form
+                    fields
+                  </li>
+                  <li>
+                    All components use :where() selectors for easy styling
+                  </li>
                 </ul>
               </div>
             </div>

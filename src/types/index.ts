@@ -13,3 +13,8 @@ export type ButtonVariant = "primary" | "secondary" | "danger" | "text";
  * Direction for form field layout
  */
 export type FormFieldDirection = "vertical" | "horizontal";
+
+/**
+ * Position for tooltip relative to trigger
+ */
+export type TooltipPosition = "top" | "bottom" | "left" | "right";

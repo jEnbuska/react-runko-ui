@@ -1,0 +1,5 @@
+/* Tooltip wrapper styles using :where() for easy overriding */
+:where(.runko-tooltip) {
+  position: relative;
+  display: inline-block;
+}

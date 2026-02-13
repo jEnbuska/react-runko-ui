@@ -1,5 +1,7 @@
 /* TooltipContent styles using :where() for easy overriding */
 :where(.runko-tooltip-content) {
+  position: absolute;
+  z-index: 1000;
   display: block;
   font-family: inherit;
   font-size: 0.875rem;
@@ -10,4 +12,82 @@
   border-radius: 0.25rem;
   max-width: 200px;
   word-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+}
+
+/* Position: Top (tooltip above trigger) */
+:where(.runko-tooltip-content--top) {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 0.5rem;
+}
+
+/* Arrow for top position */
+:where(.runko-tooltip-content--top)::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-top-color: #212529;
+}
+
+/* Position: Bottom (tooltip below trigger) */
+:where(.runko-tooltip-content--bottom) {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+}
+
+/* Arrow for bottom position */
+:where(.runko-tooltip-content--bottom)::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 0.25rem solid transparent;
+  border-bottom-color: #212529;
+}
+
+/* Position: Left (tooltip to left of trigger) */
+:where(.runko-tooltip-content--left) {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 0.5rem;
+}
+
+/* Arrow for left position */
+:where(.runko-tooltip-content--left)::after {
+  content: "";
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0.25rem solid transparent;
+  border-left-color: #212529;
+}
+
+/* Position: Right (tooltip to right of trigger) */
+:where(.runko-tooltip-content--right) {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0.5rem;
+}
+
+/* Arrow for right position */
+:where(.runko-tooltip-content--right)::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0.25rem solid transparent;
+  border-right-color: #212529;
 }
