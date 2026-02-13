@@ -1,0 +1,110 @@
+---
+title: Button
+description: Button component for user interactions
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Button
+
+A basic button element with optional variants and full HTML button attributes support.
+
+## Import
+
+```jsx
+import { Button } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Button>Click me</Button>
+```
+
+## Variants
+
+The Button component supports three variants for different semantic meanings:
+
+<Tabs>
+  <TabItem label="Primary">
+    ```jsx
+    <Button variant="primary">Primary Button</Button>
+    ```
+  </TabItem>
+  <TabItem label="Secondary">
+    ```jsx
+    <Button variant="secondary">Secondary Button</Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger">
+    ```jsx
+    <Button variant="danger">Danger Button</Button>
+    ```
+  </TabItem>
+</Tabs>
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'primary' \| 'secondary' \| 'danger'` | - | Visual variant of the button |
+| `...props` | `ButtonHTMLAttributes` | - | All standard HTML button attributes |
+
+## Examples
+
+### With onClick Handler
+
+```jsx
+<Button onClick={() => console.log('Clicked!')}>
+  Click me
+</Button>
+```
+
+### Disabled State
+
+```jsx
+<Button disabled>
+  Disabled Button
+</Button>
+```
+
+### With Type
+
+```jsx
+<Button type="submit" variant="primary">
+  Submit Form
+</Button>
+```
+
+### Custom Styling
+
+Override the default styles with your own CSS:
+
+```css
+/* High specificity not needed thanks to :where() */
+.my-button {
+  background-color: purple;
+  padding: 1rem 2rem;
+}
+```
+
+```jsx
+<Button className="my-button">
+  Custom Styled Button
+</Button>
+```
+
+## CSS Classes
+
+- `.runko-button` - Base button class
+- `.runko-button--primary` - Primary variant class
+- `.runko-button--secondary` - Secondary variant class
+- `.runko-button--danger` - Danger variant class
+
+## Accessibility
+
+The Button component:
+- Supports keyboard navigation
+- Has focus-visible styles
+- Properly handles disabled state
+- Forwards refs to the underlying button element

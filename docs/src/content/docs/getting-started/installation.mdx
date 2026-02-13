@@ -1,0 +1,57 @@
+---
+title: Installation
+description: How to install React Runko UI in your project
+---
+
+## Installation
+
+Install React Runko UI using your preferred package manager:
+
+### npm
+
+```bash
+npm install react-runko-ui
+```
+
+### yarn
+
+```bash
+yarn add react-runko-ui
+```
+
+### pnpm
+
+```bash
+pnpm add react-runko-ui
+```
+
+## Peer Dependencies
+
+React Runko UI requires React 16.8 or higher:
+
+```json
+{
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  }
+}
+```
+
+## Importing Styles
+
+To use the default styles, import the CSS file in your application:
+
+```jsx
+import 'react-runko-ui/dist/styles.css';
+```
+
+You can import this in your main application file (e.g., `App.tsx` or `index.tsx`).
+
+:::tip
+The styles use `:where()` selectors with zero specificity, so you can easily override them with your own CSS without needing `!important`.
+:::
+
+## TypeScript
+
+React Runko UI is written in TypeScript and includes full type definitions out of the box. No additional setup is needed for TypeScript projects.

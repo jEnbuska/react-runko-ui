@@ -5,6 +5,10 @@ node_modules/
 dist/
 build/
 
+# Documentation build
+docs/dist/
+docs/.astro/
+
 # Testing
 coverage/
 

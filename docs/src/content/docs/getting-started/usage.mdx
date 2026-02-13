@@ -1,0 +1,90 @@
+---
+title: Usage
+description: Learn how to use React Runko UI components
+---
+
+## Basic Usage
+
+React Runko UI exports atomic HTML components that you can use directly in your React applications:
+
+```jsx
+import { Input, Label, Button } from 'react-runko-ui';
+import 'react-runko-ui/dist/styles.css';
+
+function MyForm() {
+  return (
+    <form>
+      <Label htmlFor="name">Name</Label>
+      <Input id="name" type="text" />
+      <Button type="submit">Submit</Button>
+    </form>
+  );
+}
+```
+
+## Layout is Your Responsibility
+
+Unlike many UI libraries, React Runko UI **does not** provide layout components (Box, Flex, Grid, etc.). This is intentional - layout should be handled by your application code:
+
+```jsx
+// You handle the layout with your own divs, CSS Grid, Flexbox, etc.
+<div className="form-field">
+  <Label htmlFor="email">Email</Label>
+  <Input id="email" type="email" />
+</div>
+```
+
+## Component Variants
+
+Some components support variants for different states:
+
+```jsx
+<Button variant="primary">Primary Button</Button>
+<Button variant="secondary">Secondary Button</Button>
+<Button variant="danger">Danger Button</Button>
+
+<Input variant="error" placeholder="Invalid input" />
+<Input variant="success" placeholder="Valid input" />
+```
+
+## Forwarded Refs
+
+All components forward refs to their underlying DOM elements:
+
+```jsx
+const inputRef = useRef(null);
+
+<Input ref={inputRef} />
+
+// Access the input element
+inputRef.current.focus();
+```
+
+## Native HTML Props
+
+All components accept and forward standard HTML props:
+
+```jsx
+<Input
+  type="email"
+  name="email"
+  placeholder="Enter your email"
+  disabled={isLoading}
+  onChange={handleChange}
+  onBlur={handleBlur}
+/>
+```
+
+## Without Default Styles
+
+You can use the components without importing the CSS and style them entirely yourself:
+
+```jsx
+import { Button } from 'react-runko-ui';
+// Don't import the CSS
+
+// Use your own classes
+<Button className="my-custom-button">Click me</Button>
+```
+
+The components will still apply the base class names (e.g., `runko-button`), so you can target them with your own CSS.

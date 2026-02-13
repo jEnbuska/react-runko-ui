@@ -1,0 +1,67 @@
+---
+title: React Runko UI
+description: Atomic React component library with minimal CSS using :where() selectors
+template: splash
+hero:
+  tagline: Atomic React components with minimal, overridable CSS
+  image:
+    file: ../../assets/logo.svg
+  actions:
+    - text: Get Started
+      link: /getting-started/installation/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/jEnbuska/react-runko-ui
+      icon: external
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why React Runko UI?
+
+<CardGrid>
+  <Card title="Atomic Components" icon="puzzle">
+    Pure HTML element wrappers (Input, Label, Button, Select, etc.) without layout opinions
+  </Card>
+  <Card title="Easy to Override" icon="pencil">
+    Styles use :where() selector for zero specificity, making overrides trivial
+  </Card>
+  <Card title="Composable" icon="blocks">
+    Build your own layouts and patterns by composing atomic elements
+  </Card>
+  <Card title="Lightweight" icon="rocket">
+    Minimal dependencies - only React as a peer dependency
+  </Card>
+</CardGrid>
+
+## Philosophy
+
+React Runko UI provides atomic, unstyled React components with optional minimal CSS. Layout is intentionally left to the developer, allowing maximum flexibility in how you structure your application.
+
+The library uses the `:where()` CSS pseudo-class for styling, which has zero specificity. This means you can easily override any style with your own CSS without fighting specificity battles.
+
+## Quick Example
+
+```jsx
+import { Input, Label, Button } from 'react-runko-ui';
+import 'react-runko-ui/dist/styles.css';
+
+function LoginForm() {
+  return (
+    <form>
+      <div>
+        <Label htmlFor="email" required>Email</Label>
+        <Input 
+          id="email" 
+          type="email" 
+          placeholder="your@email.com" 
+        />
+      </div>
+      <Button variant="primary" type="submit">
+        Sign In
+      </Button>
+    </form>
+  );
+}
+```

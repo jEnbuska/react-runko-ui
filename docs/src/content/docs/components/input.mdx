@@ -1,0 +1,94 @@
+---
+title: Input
+description: Input component for text entry
+---
+
+## Input
+
+A basic input element with optional variants and full HTML input attributes support.
+
+## Import
+
+```jsx
+import { Input } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Input placeholder="Enter text" />
+```
+
+## Variants
+
+The Input component supports variants for different states:
+
+```jsx
+<Input variant="error" placeholder="Invalid input" />
+<Input variant="success" placeholder="Valid input" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'error' \| 'success'` | - | Visual variant for validation states |
+| `...props` | `InputHTMLAttributes` | - | All standard HTML input attributes |
+
+## Examples
+
+### Different Input Types
+
+```jsx
+<Input type="text" placeholder="Text input" />
+<Input type="email" placeholder="Email input" />
+<Input type="password" placeholder="Password input" />
+<Input type="number" placeholder="Number input" />
+<Input type="date" />
+```
+
+### Controlled Input
+
+```jsx
+const [value, setValue] = useState('');
+
+<Input 
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  placeholder="Controlled input"
+/>
+```
+
+### With Ref
+
+```jsx
+const inputRef = useRef(null);
+
+<Input ref={inputRef} />
+
+// Focus the input
+inputRef.current.focus();
+```
+
+### Validation States
+
+```jsx
+<Input 
+  variant={hasError ? 'error' : 'success'}
+  placeholder="Email"
+/>
+```
+
+## CSS Classes
+
+- `.runko-input` - Base input class
+- `.runko-input--error` - Error variant class
+- `.runko-input--success` - Success variant class
+
+## Accessibility
+
+The Input component:
+- Supports all ARIA attributes
+- Has proper focus styles
+- Works with labels via `id` and `htmlFor`
+- Forwards refs to the underlying input element

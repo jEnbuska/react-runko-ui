@@ -1,0 +1,251 @@
+---
+title: Composition
+description: Learn how to compose React Runko UI components
+---
+
+## Composition Over Configuration
+
+React Runko UI follows a composition-first philosophy. Instead of providing configured layout components, we provide atomic elements that you compose together.
+
+## Building Form Fields
+
+### Basic Form Field
+
+```jsx
+function FormField({ label, id, error, ...inputProps }) {
+  return (
+    <div className="form-field">
+      <Label htmlFor={id} required={inputProps.required}>
+        {label}
+      </Label>
+      <Input 
+        id={id}
+        variant={error ? 'error' : undefined}
+        {...inputProps}
+      />
+      {error && <span className="error-message">{error}</span>}
+    </div>
+  );
+}
+
+// Usage
+<FormField 
+  label="Email"
+  id="email"
+  type="email"
+  required
+  error={errors.email}
+/>
+```
+
+### Reusable Form Group
+
+```jsx
+function FormGroup({ children, className }) {
+  return (
+    <div className={`form-group ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// Usage
+<FormGroup>
+  <Label htmlFor="name">Name</Label>
+  <Input id="name" />
+</FormGroup>
+```
+
+## Building Complex Forms
+
+```jsx
+function LoginForm() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  return (
+    <form className="login-form">
+      <div className="form-field">
+        <Label htmlFor="email" required>Email</Label>
+        <Input
+          id="email"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+      </div>
+
+      <div className="form-field">
+        <Label htmlFor="password" required>Password</Label>
+        <Input
+          id="password"
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+      </div>
+
+      <div className="form-actions">
+        <Button type="submit" variant="primary">
+          Sign In
+        </Button>
+      </div>
+    </form>
+  );
+}
+```
+
+## Creating Custom Wrappers
+
+### Button Group
+
+```jsx
+function ButtonGroup({ children, className }) {
+  return (
+    <div className={`button-group ${className}`}>
+      {children}
+    </div>
+  );
+}
+
+// Usage
+<ButtonGroup className="form-actions">
+  <Button variant="secondary">Cancel</Button>
+  <Button variant="primary">Save</Button>
+</ButtonGroup>
+```
+
+```css
+.button-group {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+}
+```
+
+### Input with Icon
+
+```jsx
+function InputWithIcon({ icon, ...props }) {
+  return (
+    <div className="input-with-icon">
+      <span className="input-icon">{icon}</span>
+      <Input {...props} />
+    </div>
+  );
+}
+
+// Usage
+<InputWithIcon 
+  icon={<SearchIcon />}
+  placeholder="Search..."
+/>
+```
+
+## Checkbox/Radio Lists
+
+```jsx
+function CheckboxList({ options, value, onChange, name }) {
+  return (
+    <div className="checkbox-list">
+      {options.map((option) => (
+        <div key={option.value} className="checkbox-item">
+          <Checkbox
+            id={`${name}-${option.value}`}
+            name={name}
+            value={option.value}
+            checked={value.includes(option.value)}
+            onChange={onChange}
+          />
+          <Label htmlFor={`${name}-${option.value}`}>
+            {option.label}
+          </Label>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+// Usage
+<CheckboxList
+  name="interests"
+  options={[
+    { value: 'coding', label: 'Coding' },
+    { value: 'design', label: 'Design' },
+    { value: 'writing', label: 'Writing' },
+  ]}
+  value={selectedInterests}
+  onChange={handleChange}
+/>
+```
+
+## Form Layouts
+
+React Runko UI doesn't provide layout components. Use CSS Grid, Flexbox, or your preferred layout solution:
+
+### Grid Layout
+
+```jsx
+<form className="form-grid">
+  <div>
+    <Label htmlFor="firstName">First Name</Label>
+    <Input id="firstName" />
+  </div>
+  <div>
+    <Label htmlFor="lastName">Last Name</Label>
+    <Input id="lastName" />
+  </div>
+  <div className="full-width">
+    <Label htmlFor="email">Email</Label>
+    <Input id="email" type="email" />
+  </div>
+</form>
+```
+
+```css
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+```
+
+### Flexbox Layout
+
+```jsx
+<div className="form-row">
+  <div className="form-col">
+    <Label htmlFor="city">City</Label>
+    <Input id="city" />
+  </div>
+  <div className="form-col">
+    <Label htmlFor="state">State</Label>
+    <Select id="state">
+      <option>Select state</option>
+    </Select>
+  </div>
+</div>
+```
+
+```css
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-col {
+  flex: 1;
+}
+```
+
+## Best Practices
+
+1. **Create reusable wrapper components** for common patterns in your app
+2. **Keep styling consistent** across your wrappers
+3. **Use props for flexibility** in your composed components
+4. **Leverage React patterns** like render props or compound components
+5. **Don't fight the library** - embrace composition over configuration

@@ -1,0 +1,87 @@
+---
+title: Checkbox
+description: Checkbox component for boolean selections
+---
+
+## Checkbox
+
+A basic checkbox input element with minimal styling.
+
+## Import
+
+```jsx
+import { Checkbox } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Checkbox />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `...props` | `InputHTMLAttributes` | - | All standard HTML input attributes (except `type`) |
+
+## Examples
+
+### With Label
+
+```jsx
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <Checkbox id="agree" />
+  <Label htmlFor="agree">I agree to the terms</Label>
+</div>
+```
+
+### Controlled Checkbox
+
+```jsx
+const [checked, setChecked] = useState(false);
+
+<Checkbox 
+  checked={checked}
+  onChange={(e) => setChecked(e.target.checked)}
+/>
+```
+
+### Disabled
+
+```jsx
+<Checkbox disabled />
+<Checkbox disabled checked />
+```
+
+### Multiple Checkboxes
+
+```jsx
+<div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Checkbox id="option1" name="options" />
+    <Label htmlFor="option1">Option 1</Label>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Checkbox id="option2" name="options" />
+    <Label htmlFor="option2">Option 2</Label>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Checkbox id="option3" name="options" />
+    <Label htmlFor="option3">Option 3</Label>
+  </div>
+</div>
+```
+
+## CSS Classes
+
+- `.runko-checkbox` - Base checkbox class
+
+## Accessibility
+
+The Checkbox component:
+- Supports keyboard navigation (Space to toggle)
+- Has focus-visible styles
+- Works with labels for larger click targets
+- Properly handles disabled state
+- Forwards refs to the underlying input element

@@ -1,0 +1,97 @@
+---
+title: Radio
+description: Radio component for single selections from multiple options
+---
+
+## Radio
+
+A basic radio input element with minimal styling.
+
+## Import
+
+```jsx
+import { Radio } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Radio name="option" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `...props` | `InputHTMLAttributes` | - | All standard HTML input attributes (except `type`) |
+
+## Examples
+
+### Radio Group
+
+```jsx
+<div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Radio id="small" name="size" value="small" />
+    <Label htmlFor="small">Small</Label>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Radio id="medium" name="size" value="medium" />
+    <Label htmlFor="medium">Medium</Label>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Radio id="large" name="size" value="large" />
+    <Label htmlFor="large">Large</Label>
+  </div>
+</div>
+```
+
+### Controlled Radio
+
+```jsx
+const [selected, setSelected] = useState('medium');
+
+<div style={{ display: 'flex', gap: '1rem' }}>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Radio 
+      id="s" 
+      name="size" 
+      value="small"
+      checked={selected === 'small'}
+      onChange={(e) => setSelected(e.target.value)}
+    />
+    <Label htmlFor="s">Small</Label>
+  </div>
+  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+    <Radio 
+      id="m" 
+      name="size" 
+      value="medium"
+      checked={selected === 'medium'}
+      onChange={(e) => setSelected(e.target.value)}
+    />
+    <Label htmlFor="m">Medium</Label>
+  </div>
+</div>
+```
+
+### Disabled
+
+```jsx
+<Radio disabled />
+<Radio disabled checked />
+```
+
+## CSS Classes
+
+- `.runko-radio` - Base radio class
+
+## Accessibility
+
+The Radio component:
+- Supports keyboard navigation (Arrow keys to navigate, Space to select)
+- Has focus-visible styles
+- Works with labels for larger click targets
+- Properly handles disabled state
+- Forwards refs to the underlying input element
+- Radio buttons with the same `name` form a group

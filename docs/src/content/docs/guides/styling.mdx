@@ -1,0 +1,150 @@
+---
+title: Styling
+description: Learn how to style React Runko UI components
+---
+
+## The :where() Advantage
+
+React Runko UI uses the `:where()` CSS pseudo-class for all default styles. This gives the styles **zero specificity**, making them incredibly easy to override.
+
+### What is :where()?
+
+The `:where()` pseudo-class has a specificity of 0-0-0, meaning any selector you write will override it without needing `!important` or complex specificity battles.
+
+```css
+/* Library style (specificity: 0-0-0) */
+:where(.runko-button) {
+  background-color: blue;
+}
+
+/* Your style (specificity: 0-1-0) - wins! */
+.runko-button {
+  background-color: red;
+}
+```
+
+## Overriding Styles
+
+### Using Custom Classes
+
+The easiest way to style components is with custom classes:
+
+```jsx
+<Button className="my-button">Custom Button</Button>
+```
+
+```css
+.my-button {
+  background-color: purple;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+}
+```
+
+### Using Inline Styles
+
+```jsx
+<Input style={{ fontSize: '18px', padding: '12px' }} />
+```
+
+### Using CSS Modules
+
+```jsx
+import styles from './MyForm.module.css';
+
+<Button className={styles.submitButton}>Submit</Button>
+```
+
+```css
+/* MyForm.module.css */
+.submitButton {
+  background: linear-gradient(45deg, #007bff, #00d4ff);
+  color: white;
+}
+```
+
+### Using Styled Components
+
+```jsx
+import styled from 'styled-components';
+import { Button } from 'react-runko-ui';
+
+const StyledButton = styled(Button)`
+  background-color: hotpink;
+  &:hover {
+    background-color: deeppink;
+  }
+`;
+```
+
+### Using Tailwind CSS
+
+```jsx
+<Button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+  Tailwind Button
+</Button>
+```
+
+## CSS Variables
+
+You can define CSS custom properties (variables) to theme multiple components at once:
+
+```css
+:root {
+  --runko-primary-color: #007bff;
+  --runko-border-radius: 8px;
+  --runko-font-size: 16px;
+}
+
+.runko-button {
+  background-color: var(--runko-primary-color);
+  border-radius: var(--runko-border-radius);
+  font-size: var(--runko-font-size);
+}
+
+.runko-input {
+  border-radius: var(--runko-border-radius);
+  font-size: var(--runko-font-size);
+}
+```
+
+## Using Without Default Styles
+
+You can use React Runko UI components without importing the default CSS at all:
+
+```jsx
+// Don't import the CSS
+// import 'react-runko-ui/dist/styles.css'; // ❌ Skip this
+
+import { Button, Input } from 'react-runko-ui';
+
+// Components still get class names, but no styles
+<Button className="completely-custom">My Button</Button>
+```
+
+This gives you complete control over styling while still benefiting from the component logic and accessibility features.
+
+## Global Style Overrides
+
+Override default styles globally in your main CSS file:
+
+```css
+/* In your main stylesheet */
+.runko-button {
+  font-family: 'Comic Sans MS', cursive; /* Please don't actually do this */
+  border-radius: 20px;
+}
+
+.runko-input {
+  border: 2px solid #ccc;
+  padding: 12px;
+}
+```
+
+## Best Practices
+
+1. **Use the default styles as a starting point** - They provide sensible defaults
+2. **Override with your design system** - Easy thanks to `:where()`
+3. **Keep layout separate** - Use wrapper divs/components for layout
+4. **Use semantic variants** - Prefer `variant="primary"` over inline styles when possible
+5. **Leverage CSS custom properties** - For consistent theming across components

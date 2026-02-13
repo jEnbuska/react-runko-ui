@@ -1,0 +1,97 @@
+---
+title: Select
+description: Select component for dropdown menus
+---
+
+## Select
+
+A basic select element with optional variants and full HTML select attributes support.
+
+## Import
+
+```jsx
+import { Select } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Select>
+  <option value="">Choose an option</option>
+  <option value="1">Option 1</option>
+  <option value="2">Option 2</option>
+  <option value="3">Option 3</option>
+</Select>
+```
+
+## Variants
+
+```jsx
+<Select variant="error">
+  <option>Invalid selection</option>
+</Select>
+
+<Select variant="success">
+  <option>Valid selection</option>
+</Select>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'error' \| 'success'` | - | Visual variant for validation states |
+| `...props` | `SelectHTMLAttributes` | - | All standard HTML select attributes |
+
+## Examples
+
+### With Label
+
+```jsx
+<div>
+  <Label htmlFor="country">Country</Label>
+  <Select id="country">
+    <option value="">Select a country</option>
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+    <option value="ca">Canada</option>
+  </Select>
+</div>
+```
+
+### Controlled Select
+
+```jsx
+const [value, setValue] = useState('');
+
+<Select 
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+>
+  <option value="">Choose</option>
+  <option value="a">Option A</option>
+  <option value="b">Option B</option>
+</Select>
+```
+
+### Disabled
+
+```jsx
+<Select disabled>
+  <option>Disabled select</option>
+</Select>
+```
+
+## CSS Classes
+
+- `.runko-select` - Base select class
+- `.runko-select--error` - Error variant class
+- `.runko-select--success` - Success variant class
+
+## Accessibility
+
+The Select component:
+- Supports keyboard navigation
+- Works with labels via `id` and `htmlFor`
+- Properly handles disabled state
+- Forwards refs to the underlying select element

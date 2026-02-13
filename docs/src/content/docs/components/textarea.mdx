@@ -1,0 +1,94 @@
+---
+title: Textarea
+description: Textarea component for multi-line text entry
+---
+
+## Textarea
+
+A basic textarea element with optional variants and full HTML textarea attributes support.
+
+## Import
+
+```jsx
+import { Textarea } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Textarea placeholder="Enter your message" />
+```
+
+## Variants
+
+```jsx
+<Textarea variant="error" placeholder="Error state" />
+<Textarea variant="success" placeholder="Success state" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `variant` | `'error' \| 'success'` | - | Visual variant for validation states |
+| `...props` | `TextareaHTMLAttributes` | - | All standard HTML textarea attributes |
+
+## Examples
+
+### With Label
+
+```jsx
+<div>
+  <Label htmlFor="message">Message</Label>
+  <Textarea 
+    id="message"
+    rows={5}
+    placeholder="Enter your message here..."
+  />
+</div>
+```
+
+### Controlled Textarea
+
+```jsx
+const [value, setValue] = useState('');
+
+<Textarea 
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  placeholder="Type something..."
+/>
+```
+
+### With Row Limit
+
+```jsx
+<Textarea 
+  rows={10}
+  placeholder="Large textarea"
+/>
+```
+
+### Disabled
+
+```jsx
+<Textarea 
+  disabled
+  value="Cannot edit this"
+/>
+```
+
+## CSS Classes
+
+- `.runko-textarea` - Base textarea class
+- `.runko-textarea--error` - Error variant class
+- `.runko-textarea--success` - Success variant class
+
+## Accessibility
+
+The Textarea component:
+- Supports all ARIA attributes
+- Has proper focus styles
+- Works with labels via `id` and `htmlFor`
+- Forwards refs to the underlying textarea element
+- Allows vertical resizing by default

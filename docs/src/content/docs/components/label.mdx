@@ -1,0 +1,79 @@
+---
+title: Label
+description: Label component for form fields
+---
+
+## Label
+
+A basic label element with optional required indicator.
+
+## Import
+
+```jsx
+import { Label } from 'react-runko-ui';
+```
+
+## Basic Usage
+
+```jsx
+<Label htmlFor="email">Email</Label>
+<Input id="email" type="email" />
+```
+
+## Required Indicator
+
+Add a visual indicator for required fields:
+
+```jsx
+<Label htmlFor="email" required>Email</Label>
+<Input id="email" type="email" required />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `required` | `boolean` | `false` | Shows a red asterisk (*) after the label text |
+| `...props` | `LabelHTMLAttributes` | - | All standard HTML label attributes |
+
+## Examples
+
+### With Input
+
+```jsx
+<div>
+  <Label htmlFor="username">Username</Label>
+  <Input id="username" type="text" />
+</div>
+```
+
+### Required Field
+
+```jsx
+<div>
+  <Label htmlFor="password" required>Password</Label>
+  <Input id="password" type="password" required />
+</div>
+```
+
+### With Checkbox
+
+```jsx
+<div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">I agree to the terms</Label>
+</div>
+```
+
+## CSS Classes
+
+- `.runko-label` - Base label class
+- `.runko-label__required` - Required indicator class (for the asterisk)
+
+## Accessibility
+
+The Label component:
+- Properly associates with form controls via `htmlFor`
+- Improves click target area for inputs
+- Forwards refs to the underlying label element
+- Supports all ARIA attributes
