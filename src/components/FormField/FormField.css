@@ -1,0 +1,49 @@
+:where(.runko-form-field) {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+:where(.runko-form-field--vertical) {
+  flex-direction: column;
+}
+
+:where(.runko-form-field--horizontal) {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+:where(.runko-form-field__label-row) {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+:where(.runko-form-field__label) {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+:where(.runko-form-field--horizontal .runko-form-field__label) {
+  min-width: 150px;
+  padding-top: 0.5rem;
+}
+
+:where(.runko-form-field__description) {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+
+:where(.runko-form-field__control) {
+  flex: 1;
+}
+
+:where(.runko-form-field__error) {
+  font-size: 0.875rem;
+  color: #dc3545;
+}
+
+:where(.runko-form-field__tooltip) {
+  display: inline-flex;
+}

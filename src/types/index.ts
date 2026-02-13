@@ -8,3 +8,8 @@ export type RunkoVariant = "error" | "success";
  * Button-specific variant type for semantic styling
  */
 export type ButtonVariant = "primary" | "secondary" | "danger";
+
+/**
+ * Direction for form field layout
+ */
+export type FormFieldDirection = "vertical" | "horizontal";

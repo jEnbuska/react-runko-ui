@@ -35,8 +35,13 @@ export type { TooltipTriggerProps } from "./components/TooltipTrigger/TooltipTri
 export { TooltipContent } from "./components/TooltipContent/TooltipContent";
 export type { TooltipContentProps } from "./components/TooltipContent/TooltipContent";
 
+export { FormField } from "./components/FormField/FormField";
+export type { FormFieldProps } from "./components/FormField/FormField";
+
 // Utilities
 export { cn } from "./utils";
+export { defineFormFields } from "./utils/defineFormFields";
+export type { DefineFormFieldsOptions, FieldWrapperProps } from "./utils/defineFormFields";
 
 // Types
-export type { RunkoVariant, ButtonVariant } from "./types";
+export type { RunkoVariant, ButtonVariant, FormFieldDirection } from "./types";
