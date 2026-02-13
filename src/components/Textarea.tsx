@@ -1,10 +1,11 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
+import { cn } from "../utils/cn";
 
-export interface TextareaProps extends ComponentProps<'textarea'> {
+export interface TextareaProps extends ComponentProps<"textarea"> {
   /**
    * Textarea variant for different states
    */
-  variant?: 'error' | 'success';
+  variant?: "error" | "success";
 }
 
 /**
@@ -12,14 +13,14 @@ export interface TextareaProps extends ComponentProps<'textarea'> {
  * Layout and spacing should be handled by the parent
  */
 export function Textarea({ variant, className, ...props }: TextareaProps) {
-  const classes = [
-    'runko-textarea',
-    variant && `runko-textarea--${variant}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  return <textarea className={classes} {...props} />;
+  return (
+    <textarea
+      className={cn(
+        "runko-textarea",
+        variant && `runko-textarea--${variant}`,
+        className,
+      )}
+      {...props}
+    />
+  );
 }
-

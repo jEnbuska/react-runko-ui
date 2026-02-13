@@ -1,10 +1,11 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
+import { cn } from "../utils/cn";
 
-export interface InputProps extends ComponentProps<'input'> {
+export interface InputProps extends ComponentProps<"input"> {
   /**
    * Input variant for different states
    */
-  variant?: 'error' | 'success';
+  variant?: "error" | "success";
 }
 
 /**
@@ -12,14 +13,14 @@ export interface InputProps extends ComponentProps<'input'> {
  * Layout and spacing should be handled by the parent
  */
 export function Input({ variant, className, ...props }: InputProps) {
-  const classes = [
-    'runko-input',
-    variant && `runko-input--${variant}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  return <input className={classes} {...props} />;
+  return (
+    <input
+      className={cn(
+        "runko-input",
+        variant && `runko-input--${variant}`,
+        className,
+      )}
+      {...props}
+    />
+  );
 }
-

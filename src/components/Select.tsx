@@ -1,10 +1,11 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
+import { cn } from "../utils/cn";
 
-export interface SelectProps extends ComponentProps<'select'> {
+export interface SelectProps extends ComponentProps<"select"> {
   /**
    * Select variant for different states
    */
-  variant?: 'error' | 'success';
+  variant?: "error" | "success";
 }
 
 /**
@@ -12,14 +13,14 @@ export interface SelectProps extends ComponentProps<'select'> {
  * Layout and spacing should be handled by the parent
  */
 export function Select({ variant, className, ...props }: SelectProps) {
-  const classes = [
-    'runko-select',
-    variant && `runko-select--${variant}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  return <select className={classes} {...props} />;
+  return (
+    <select
+      className={cn(
+        "runko-select",
+        variant && `runko-select--${variant}`,
+        className,
+      )}
+      {...props}
+    />
+  );
 }
-

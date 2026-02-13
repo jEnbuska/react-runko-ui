@@ -89,21 +89,48 @@ You handle layout using your own CSS, CSS-in-JS, Tailwind, or whatever solution 
 
 ## Development
 
+### Local Development with Hot Reloading
+
+The project includes an interactive playground with Vite for development with instant visual feedback:
+
 ```bash
-# Install dependencies
+# Install main dependencies
 npm install
 
+# Install playground dependencies
+cd playground
+npm install
+
+# Start the development server (from root or playground directory)
+npm run dev
+```
+
+This will start a Vite development server at **http://localhost:3000** with:
+- ⚡ **Hot Module Reloading**: Changes reflect instantly
+- 🔥 **Fast Refresh**: React state preserved across updates
+- 📝 **Full TypeScript Support**: Type checking during development
+- 🎨 **Live Component Testing**: Interactive demos of all components
+- 👀 **Visual Feedback**: See changes immediately as you code
+
+The playground imports components directly from `src/`, so any changes to library components are instantly visible in the browser.
+
+### Testing & Building
+
+```bash
 # Run tests
 npm test
 
-# Build the library
-npm run build
+# Run tests in watch mode
+npm test:watch
 
 # Lint code
 npm run lint
 
-# Format code
+# Format code with Prettier
 npm run format
+
+# Build the library
+npm run build
 ```
 
 ## License

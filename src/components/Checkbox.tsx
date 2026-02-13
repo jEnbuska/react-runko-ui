@@ -1,14 +1,18 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
+import { cn } from "../utils/cn";
 
-export interface CheckboxProps extends Omit<ComponentProps<'input'>, 'type'> {}
+export interface CheckboxProps extends Omit<ComponentProps<"input">, "type"> {}
 
 /**
  * Checkbox component - A basic checkbox input with minimal styling
  * Layout and spacing should be handled by the parent
  */
 export function Checkbox({ className, ...props }: CheckboxProps) {
-  const classes = ['runko-checkbox', className].filter(Boolean).join(' ');
-
-  return <input type="checkbox" className={classes} {...props} />;
+  return (
+    <input
+      type="checkbox"
+      className={cn("runko-checkbox", className)}
+      {...props}
+    />
+  );
 }
-

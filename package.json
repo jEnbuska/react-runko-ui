@@ -11,6 +11,7 @@
   ],
   "style": "dist/styles.css",
   "scripts": {
+    "dev": "cd playground && npm run dev",
     "build": "rollup -c",
     "test": "jest",
     "test:watch": "jest --watch",

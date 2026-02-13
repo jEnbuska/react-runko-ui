@@ -1,10 +1,11 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps } from "react";
+import { cn } from "../utils/cn";
 
-export interface ButtonProps extends ComponentProps<'button'> {
+export interface ButtonProps extends ComponentProps<"button"> {
   /**
    * Button variant for semantic styling
    */
-  variant?: 'primary' | 'secondary' | 'danger';
+  variant?: "primary" | "secondary" | "danger";
 }
 
 /**
@@ -12,14 +13,14 @@ export interface ButtonProps extends ComponentProps<'button'> {
  * Layout and spacing should be handled by the parent
  */
 export function Button({ variant, className, ...props }: ButtonProps) {
-  const classes = [
-    'runko-button',
-    variant && `runko-button--${variant}`,
-    className,
-  ]
-    .filter(Boolean)
-    .join(' ');
-
-  return <button className={classes} {...props} />;
+  return (
+    <button
+      className={cn(
+        "runko-button",
+        variant && `runko-button--${variant}`,
+        className,
+      )}
+      {...props}
+    />
+  );
 }
-
