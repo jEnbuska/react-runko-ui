@@ -1,13 +1,14 @@
 {
   "name": "react-runko-ui",
   "version": "0.1.0",
-  "description": "Generic composable React component library for jump starting a new react project, without major dependencies or opinions",
+  "description": "Atomic React component library with minimal CSS using :where() selectors for easy customization",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "style": "dist/styles.css",
   "scripts": {
     "build": "rollup -c",
     "test": "jest",
@@ -48,11 +49,13 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
+    "postcss": "^8.5.6",
     "prettier": "^3.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^4.9.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
     "ts-jest": "^29.1.1",
     "tslib": "^2.6.2",
     "typescript": "^5.3.3"
