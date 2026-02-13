@@ -101,7 +101,10 @@ export function defineFormFields<TComponents extends Record<string, ComponentTyp
           tooltip={
             tooltip ? (
               <>
-                <TooltipTrigger aria-describedby={`${fieldId}-tooltip`}>
+                <TooltipTrigger
+                  aria-describedby={`${fieldId}-tooltip`}
+                  aria-label="More information"
+                >
                   ℹ️
                 </TooltipTrigger>
                 <TooltipContent id={`${fieldId}-tooltip`}>

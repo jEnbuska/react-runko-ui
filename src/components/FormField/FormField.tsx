@@ -1,7 +1,6 @@
 import type { ComponentProps, ReactNode } from "react";
+import type { FormFieldDirection } from "../../types";
 import "./FormField.css";
-
-export type FormFieldDirection = "vertical" | "horizontal";
 
 export interface FormFieldProps extends ComponentProps<"div"> {
   id: string;
@@ -27,10 +26,6 @@ export function FormField({
   const descriptionId = description ? `${id}-description` : undefined;
   const errorId = error ? `${id}-error` : undefined;
   const tooltipId = tooltip ? `${id}-tooltip` : undefined;
-
-  const ariaDescribedby = [descriptionId, errorId]
-    .filter(Boolean)
-    .join(" ") || undefined;
 
   return (
     <div
@@ -58,7 +53,7 @@ export function FormField({
         </div>
       )}
 
-      <div className="runko-form-field__control" aria-describedby={ariaDescribedby}>
+      <div className="runko-form-field__control">
         {children}
       </div>
 
