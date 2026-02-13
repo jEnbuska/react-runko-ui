@@ -5,13 +5,12 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: var(--runko-font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #f5f7fa;
-  color: #2d3748;
+  background: var(--runko-bg);
+  color: var(--runko-text);
+  transition: background 0.3s, color 0.3s;
 }
 
 .playground {
@@ -23,9 +22,12 @@ body {
   text-align: center;
   margin-bottom: 3rem;
   padding: 2rem;
-  background: white;
+  background: var(--runko-bg);
+  border: 1px solid var(--runko-border);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--runko-shadow-sm);
+  position: relative;
+  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .header h1 {
@@ -39,8 +41,9 @@ body {
 
 .subtitle {
   margin: 0;
-  color: #718096;
+  color: var(--runko-text-muted);
   font-size: 1.1rem;
+  transition: color 0.3s;
 }
 
 .demo-grid {
@@ -52,16 +55,17 @@ body {
 }
 
 .demo-section {
-  background: white;
+  background: var(--runko-bg);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--runko-border);
+  box-shadow: var(--runko-shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.3s, border-color 0.3s;
 }
 
 .demo-section:hover {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--runko-shadow-md);
 }
 
 .demo-section.full-width {
@@ -71,9 +75,10 @@ body {
 .demo-section h2 {
   margin: 0 0 1.5rem 0;
   font-size: 1.5rem;
-  color: #2d3748;
-  border-bottom: 2px solid #e2e8f0;
+  color: var(--runko-text);
+  border-bottom: 2px solid var(--runko-border);
   padding-bottom: 0.5rem;
+  transition: color 0.3s, border-color 0.3s;
 }
 
 .demo-content {
@@ -106,16 +111,17 @@ body {
 
 .checkbox-group:hover,
 .radio-group:hover {
-  background: #f7fafc;
+  background: var(--runko-highlight);
 }
 
 .selected-value {
   margin-top: 1rem;
   padding: 0.75rem;
-  background: #edf2f7;
-  border-radius: 6px;
+  background: var(--runko-highlight);
+  border-radius: var(--runko-radius);
   font-weight: 500;
-  color: #4a5568;
+  color: var(--runko-text);
+  transition: background 0.3s, color 0.3s;
 }
 
 /* CN Demo Styles */
@@ -132,35 +138,36 @@ body {
 
 .controls button {
   padding: 0.5rem 1rem;
-  border: 2px solid #e2e8f0;
-  background: white;
-  border-radius: 6px;
+  border: 2px solid var(--runko-border);
+  background: var(--runko-bg);
+  border-radius: var(--runko-radius);
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s;
+  color: var(--runko-text);
 }
 
 .controls button:hover {
-  border-color: #cbd5e0;
-  background: #f7fafc;
+  border-color: var(--runko-border-strong);
+  background: var(--runko-highlight);
 }
 
 .demo-box {
   padding: 1.5rem;
-  border: 2px dashed #cbd5e0;
-  border-radius: 8px;
-  background: #f7fafc;
+  border: 2px dashed var(--runko-border-strong);
+  border-radius: var(--runko-radius);
+  background: var(--runko-highlight);
   transition: all 0.3s;
 }
 
 .demo-box.success {
-  border-color: #48bb78;
-  background: #f0fff4;
+  border-color: var(--runko-success);
+  background: var(--runko-highlight);
 }
 
 .demo-box.error {
-  border-color: #f56565;
-  background: #fff5f5;
+  border-color: var(--runko-error);
+  background: var(--runko-highlight);
 }
 
 .demo-box p {
@@ -170,11 +177,14 @@ body {
 .demo-box code {
   display: block;
   padding: 0.75rem;
-  background: white;
-  border-radius: 4px;
-  font-family: "Courier New", monospace;
+  background: var(--runko-bg);
+  border: 1px solid var(--runko-border);
+  border-radius: var(--runko-radius);
+  font-family: var(--runko-font-mono);
   font-size: 0.875rem;
   margin: 0.5rem 0;
+  color: var(--runko-text);
+  transition: all 0.3s;
 }
 
 /* Form Example Styles */
@@ -195,7 +205,8 @@ body {
   justify-content: flex-end;
   gap: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #e2e8f0;
+  border-top: 1px solid var(--runko-border);
+  transition: border-color 0.3s;
 }
 
 /* Responsive */
@@ -231,16 +242,18 @@ body {
 }
 
 .comparison-item {
-  background: #f7fafc;
+  background: var(--runko-highlight);
   padding: 1.5rem;
-  border-radius: 8px;
-  border: 2px solid #e2e8f0;
+  border-radius: var(--runko-radius);
+  border: 2px solid var(--runko-border);
+  transition: all 0.3s;
 }
 
 .comparison-item h3 {
   margin: 0 0 1rem 0;
   font-size: 1.1rem;
-  color: #2d3748;
+  color: var(--runko-text);
+  transition: color 0.3s;
 }
 
 .demo-inputs {
@@ -253,25 +266,29 @@ body {
 .code-block {
   display: block;
   padding: 1rem;
-  background: white;
-  border-radius: 6px;
-  font-family: "Courier New", monospace;
+  background: var(--runko-bg);
+  border-radius: var(--runko-radius);
+  font-family: var(--runko-font-mono);
   font-size: 0.85rem;
   white-space: pre;
   overflow-x: auto;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--runko-border);
+  color: var(--runko-text);
+  transition: all 0.3s;
 }
 
 .usage-notes {
-  background: #edf2f7;
+  background: var(--runko-highlight);
   padding: 1.5rem;
-  border-radius: 8px;
-  border-left: 4px solid #667eea;
+  border-radius: var(--runko-radius);
+  border-left: 4px solid var(--runko-primary);
+  transition: all 0.3s;
 }
 
 .usage-notes h4 {
   margin: 0 0 1rem 0;
-  color: #2d3748;
+  color: var(--runko-text);
+  transition: color 0.3s;
 }
 
 .usage-notes ul {
@@ -281,15 +298,17 @@ body {
 
 .usage-notes li {
   margin-bottom: 0.5rem;
-  color: #4a5568;
+  color: var(--runko-text-muted);
+  transition: color 0.3s;
 }
 
 .usage-notes code {
-  background: white;
+  background: var(--runko-bg);
   padding: 0.2rem 0.4rem;
   border-radius: 3px;
   font-size: 0.9em;
-  border: 1px solid #cbd5e0;
+  border: 1px solid var(--runko-border);
+  transition: all 0.3s;
 }
 
 /* Helper Demo Styles */
@@ -301,14 +320,44 @@ body {
 
 .helper-demo h3 {
   margin: 0 0 1rem 0;
-  color: #2d3748;
+  color: var(--runko-text);
   font-size: 1.2rem;
-  border-bottom: 2px solid #e2e8f0;
+  border-bottom: 2px solid var(--runko-border);
   padding-bottom: 0.5rem;
+  transition: color 0.3s, border-color 0.3s;
 }
 
 .helper-demo h4 {
   margin: 0 0 0.5rem 0;
-  color: #4a5568;
+  color: var(--runko-text-muted);
   font-size: 1rem;
+  transition: color 0.3s;
+}
+
+/* Theme Switch Styles */
+.theme-switch {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.75rem;
+  background: var(--runko-highlight);
+  border: 2px solid var(--runko-border);
+  border-radius: var(--runko-radius);
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  line-height: 1;
+}
+
+.theme-switch:hover {
+  background: var(--runko-border);
+  transform: scale(1.1);
+}
+
+.theme-switch:focus {
+  outline: 2px solid var(--runko-focus-ring);
+  outline-offset: 2px;
 }

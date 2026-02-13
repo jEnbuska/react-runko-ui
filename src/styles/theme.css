@@ -47,9 +47,39 @@
     accent-color: var(--runko-primary);
   }
 
-  /* --- Automatic Dark Mode Sync --- */
+  /* --- Manual Dark Mode (data-theme attribute) --- */
+  /* This takes precedence over system preference */
+  [data-theme="dark"] {
+    --runko-bg: oklch(15% 0.005 240);
+    --runko-text: oklch(92% 0.005 240);
+    --runko-text-muted: oklch(65% 0.01 240);
+
+    --runko-border: oklch(25% 0.01 240);
+    --runko-border-strong: oklch(35% 0.01 240);
+
+    --runko-primary: oklch(70% 0.01 240);
+    --runko-primary-hover: oklch(80% 0.01 240);
+    --runko-on-primary: oklch(10% 0 0);
+
+    --runko-highlight: oklch(35% 0.05 240);
+    --runko-focus-ring: oklch(70% 0.05 240);
+
+    --runko-success: oklch(65% 0.15 145);
+    --runko-success-hover: oklch(75% 0.15 145);
+    --runko-error: oklch(65% 0.20 25);
+    --runko-error-hover: oklch(75% 0.20 25);
+    --runko-warning: oklch(75% 0.15 75);
+
+    --runko-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+    --runko-shadow-md: 0 4px 12px -2px rgb(0 0 0 / 0.6);
+
+    /* --- Accent Color --- */
+    accent-color: var(--runko-primary);
+  }
+
+  /* --- Automatic Dark Mode Sync (fallback) --- */
   @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme]) {
       --runko-bg: oklch(15% 0.005 240);
       --runko-text: oklch(92% 0.005 240);
       --runko-text-muted: oklch(65% 0.01 240);

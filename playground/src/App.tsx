@@ -14,6 +14,7 @@ import {
   TooltipContent,
   cn,
 } from "react-runko-ui";
+import { ThemeSwitch } from "./components/ThemeSwitch";
 import "./App.css";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="playground">
       <header className="header">
+        <ThemeSwitch />
         <h1>React Runko UI Playground</h1>
         <p className="subtitle">
           Interactive demo of all components with live editing
