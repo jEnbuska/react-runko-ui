@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
+import "./Checkbox.css";
 
 export interface CheckboxProps extends Omit<ComponentProps<"input">, "type"> {}
 

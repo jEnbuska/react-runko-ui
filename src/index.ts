@@ -1,30 +1,27 @@
-// Import styles
-import "./styles/index.css";
-
 // Export all atomic components
-export { Button } from "./components/Button";
-export type { ButtonProps, ButtonVariantClassNames } from "./components/Button";
+export { Button } from "./components/Button/Button";
+export type { ButtonProps, ButtonVariantClassNames } from "./components/Button/Button";
 
-export { Input } from "./components/Input";
-export type { InputProps, InputVariantClassNames } from "./components/Input";
+export { Input } from "./components/Input/Input";
+export type { InputProps, InputVariantClassNames } from "./components/Input/Input";
 
-export { Label } from "./components/Label";
-export type { LabelProps } from "./components/Label";
+export { Label } from "./components/Label/Label";
+export type { LabelProps } from "./components/Label/Label";
 
-export { Select } from "./components/Select";
-export type { SelectProps, SelectVariantClassNames } from "./components/Select";
+export { Select } from "./components/Select/Select";
+export type { SelectProps, SelectVariantClassNames } from "./components/Select/Select";
 
-export { Textarea } from "./components/Textarea";
+export { Textarea } from "./components/Textarea/Textarea";
 export type {
   TextareaProps,
   TextareaVariantClassNames,
-} from "./components/Textarea";
+} from "./components/Textarea/Textarea";
 
-export { Checkbox } from "./components/Checkbox";
-export type { CheckboxProps } from "./components/Checkbox";
+export { Checkbox } from "./components/Checkbox/Checkbox";
+export type { CheckboxProps } from "./components/Checkbox/Checkbox";
 
-export { Radio } from "./components/Radio";
-export type { RadioProps } from "./components/Radio";
+export { Radio } from "./components/Radio/Radio";
+export type { RadioProps } from "./components/Radio/Radio";
 
 // Utilities
 export { cn } from "./utils";

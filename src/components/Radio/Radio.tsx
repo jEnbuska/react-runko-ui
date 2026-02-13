@@ -1,5 +1,6 @@
 import type { ComponentProps } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "../../utils/cn";
+import "./Radio.css";
 
 export interface RadioProps extends Omit<ComponentProps<"input">, "type"> {}
 

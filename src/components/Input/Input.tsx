@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
-import { cn } from "../utils/cn";
-import type { RunkoVariant } from "../types";
+import { cn } from "../../utils/cn";
+import type { RunkoVariant } from "../../types";
+import "./Input.css";
 
 export type InputVariantClassNames = Partial<Record<RunkoVariant, string>>;
 

@@ -1,6 +1,7 @@
 import type { ComponentProps } from "react";
-import { cn } from "../utils/cn";
-import type { ButtonVariant } from "../types";
+import { cn } from "../../utils/cn";
+import type { ButtonVariant } from "../../types";
+import "./Button.css";
 
 export type ButtonVariantClassNames = Partial<Record<ButtonVariant, string>>;
 
