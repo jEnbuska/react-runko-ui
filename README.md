@@ -66,7 +66,9 @@ The library uses the `:where()` CSS pseudo-class for all default styles, which h
 
 ## Documentation
 
-For complete documentation, component examples, and guides, visit the documentation site:
+For complete documentation, component examples, and guides, see the documentation site.
+
+### Running the Docs Locally
 
 ```bash
 cd docs
