@@ -15,7 +15,7 @@ export interface TooltipProps {
    */
   position?: TooltipPosition;
   /**
-   * The trigger element that shows the tooltip on hover
+   * The trigger element that shows the tooltip on hover/focus
    */
   children: ReactNode;
   /**
@@ -28,10 +28,13 @@ export interface TooltipProps {
  * Tooltip component - A wrapper that manages tooltip trigger and content with positioning
  *
  * Features:
- * - Automatic show/hide on hover
+ * - Automatic show/hide on hover and focus (keyboard accessible)
  * - 4 position options: top, bottom, left, right
  * - Arrow indicators pointing to trigger
  * - Works with any trigger element
+ *
+ * Note: For full keyboard accessibility, ensure the trigger element (children)
+ * is focusable (e.g., button, link, or has tabIndex)
  *
  * @example
  * ```tsx
@@ -53,6 +56,8 @@ export function Tooltip({
       className={cn("runko-tooltip", className)}
       onMouseEnter={() => setIsVisible(true)}
       onMouseLeave={() => setIsVisible(false)}
+      onFocus={() => setIsVisible(true)}
+      onBlur={() => setIsVisible(false)}
     >
       {children}
       {isVisible && (

@@ -13,6 +13,9 @@
   max-width: 200px;
   word-wrap: break-word;
   white-space: normal;
+  /* Note: pointer-events set to none to prevent tooltip from interfering with mouse events.
+     If your tooltip content needs to be interactive (with links, buttons, etc.),
+     override this property in your custom styles. */
   pointer-events: none;
 }
 
