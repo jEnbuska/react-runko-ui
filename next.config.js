@@ -8,9 +8,6 @@ const nextConfig = {
   
   // Modern bundler features
   swcMinify: true,
-  
-  // Ensure CSS modules work
-  cssModules: true,
 };
 
 module.exports = nextConfig;
