@@ -1,48 +1,50 @@
 /* Input styles using :where() for easy overriding */
-:where(.runko-input) {
-  display: block;
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: inherit;
-  background-color: white;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out;
-}
+@layer runko {
+  :where(.runko-input) {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-family: var(--runko-font-main);
+    font-size: 1rem;
+    line-height: var(--runko-line-height);
+    color: var(--runko-text);
+    background-color: var(--runko-bg);
+    border: 1px solid var(--runko-border);
+    border-radius: var(--runko-radius);
+    transition: border-color 0.15s ease-in-out;
+  }
 
-:where(.runko-input:focus) {
-  outline: none;
-  border-color: #80bdff;
-}
+  :where(.runko-input:focus) {
+    outline: none;
+    border-color: var(--runko-focus-ring);
+  }
 
-:where(.runko-input:disabled) {
-  opacity: 0.5;
-  cursor: not-allowed;
-  background-color: #e9ecef;
-}
+  :where(.runko-input:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--runko-highlight);
+  }
 
-:where(.runko-input::placeholder) {
-  color: #6c757d;
-  opacity: 0.5;
-}
+  :where(.runko-input::placeholder) {
+    color: var(--runko-text-muted);
+    opacity: 0.5;
+  }
 
-/* Variant: Error */
-:where(.runko-input--error) {
-  border-color: #dc3545;
-}
+  /* Variant: Error */
+  :where(.runko-input--error) {
+    border-color: var(--runko-error);
+  }
 
-:where(.runko-input--error:focus) {
-  border-color: #dc3545;
-}
+  :where(.runko-input--error:focus) {
+    border-color: var(--runko-error);
+  }
 
-/* Variant: Success */
-:where(.runko-input--success) {
-  border-color: #28a745;
-}
+  /* Variant: Success */
+  :where(.runko-input--success) {
+    border-color: var(--runko-success);
+  }
 
-:where(.runko-input--success:focus) {
-  border-color: #28a745;
+  :where(.runko-input--success:focus) {
+    border-color: var(--runko-success);
+  }
 }

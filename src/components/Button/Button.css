@@ -1,58 +1,72 @@
 /* Button styles using :where() for easy overriding */
-:where(.runko-button) {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
-  background-color: transparent;
-  color: inherit;
-  transition: all 0.15s ease-in-out;
-}
+@layer runko {
+  :where(.runko-button) {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    font-family: var(--runko-font-main);
+    font-size: 1rem;
+    line-height: var(--runko-line-height);
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: var(--runko-radius);
+    background-color: transparent;
+    color: var(--runko-text);
+    transition: all 0.15s ease-in-out;
+  }
 
-:where(.runko-button:hover) {
-  opacity: 0.8;
-}
+  :where(.runko-button:hover) {
+    opacity: 0.8;
+  }
 
-:where(.runko-button:focus-visible) {
-  outline: 2px solid currentColor;
-  outline-offset: 2px;
-}
+  :where(.runko-button:focus-visible) {
+    outline: 2px solid var(--runko-focus-ring);
+    outline-offset: 2px;
+  }
 
-:where(.runko-button:disabled) {
-  opacity: 0.5;
-  cursor: not-allowed;
-}
+  :where(.runko-button:disabled) {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
-/* Variant: Primary */
-:where(.runko-button--primary) {
-  background-color: #007bff;
-  color: white;
-  border-color: #007bff;
-}
+  /* Variant: Primary */
+  :where(.runko-button--primary) {
+    background-color: var(--runko-primary);
+    color: var(--runko-on-primary);
+    border-color: var(--runko-primary);
+  }
 
-/* Variant: Secondary */
-:where(.runko-button--secondary) {
-  background-color: #6c757d;
-  color: white;
-  border-color: #6c757d;
-}
+  :where(.runko-button--primary:hover:not(:disabled)) {
+    background-color: var(--runko-primary-hover);
+    border-color: var(--runko-primary-hover);
+    opacity: 1;
+  }
 
-/* Variant: Danger */
-:where(.runko-button--danger) {
-  background-color: #dc3545;
-  color: white;
-  border-color: #dc3545;
-}
+  /* Variant: Secondary */
+  :where(.runko-button--secondary) {
+    background-color: var(--runko-text-muted);
+    color: var(--runko-on-primary);
+    border-color: var(--runko-text-muted);
+  }
 
-/* Variant: Text */
-:where(.runko-button--text) {
-  background-color: transparent;
-  color: inherit;
-  border-color: transparent;
+  /* Variant: Danger */
+  :where(.runko-button--danger) {
+    background-color: var(--runko-error);
+    color: var(--runko-on-primary);
+    border-color: var(--runko-error);
+  }
+
+  :where(.runko-button--danger:hover:not(:disabled)) {
+    background-color: var(--runko-error-hover);
+    border-color: var(--runko-error-hover);
+    opacity: 1;
+  }
+
+  /* Variant: Text */
+  :where(.runko-button--text) {
+    background-color: transparent;
+    color: var(--runko-text);
+    border-color: transparent;
+  }
 }

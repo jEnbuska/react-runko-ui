@@ -1,3 +1,6 @@
+// Import theme styles first (must be loaded before component styles)
+import "./styles/theme.css";
+
 // Export all atomic components
 export { Button } from "./components/Button/Button";
 export type {

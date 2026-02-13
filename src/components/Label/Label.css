@@ -1,13 +1,15 @@
 /* Label styles using :where() for easy overriding */
-:where(.runko-label) {
-  display: inline-block;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: inherit;
-  margin-bottom: 0.25rem;
-}
+@layer runko {
+  :where(.runko-label) {
+    display: inline-block;
+    font-family: var(--runko-font-main);
+    font-size: 1rem;
+    line-height: var(--runko-line-height);
+    color: var(--runko-text);
+    margin-bottom: 0.25rem;
+  }
 
-:where(.runko-label__required) {
-  color: #dc3545;
+  :where(.runko-label__required) {
+    color: var(--runko-error);
+  }
 }

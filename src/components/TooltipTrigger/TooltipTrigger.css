@@ -1,24 +1,26 @@
 /* TooltipTrigger styles using :where() for easy overriding */
-:where(.runko-tooltip-trigger) {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: inherit;
-  font-size: 1rem;
-  line-height: 1;
-  color: inherit;
-  background: transparent;
-  border: none;
-  padding: 0.25rem;
-  cursor: pointer;
-  border-radius: 0.25rem;
-}
+@layer runko {
+  :where(.runko-tooltip-trigger) {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--runko-font-main);
+    font-size: 1rem;
+    line-height: 1;
+    color: var(--runko-text);
+    background: transparent;
+    border: none;
+    padding: 0.25rem;
+    cursor: pointer;
+    border-radius: var(--runko-radius);
+  }
 
-:where(.runko-tooltip-trigger):hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
+  :where(.runko-tooltip-trigger):hover {
+    background-color: var(--runko-highlight);
+  }
 
-:where(.runko-tooltip-trigger):focus {
-  outline: 2px solid #007bff;
-  outline-offset: 2px;
+  :where(.runko-tooltip-trigger):focus {
+    outline: 2px solid var(--runko-focus-ring);
+    outline-offset: 2px;
+  }
 }
