@@ -20,6 +20,34 @@ describe("Button", () => {
     expect(button).toHaveClass("runko-button--primary");
   });
 
+  it("applies custom variant class names", () => {
+    const { container } = render(
+      <Button
+        variant="primary"
+        variantClassNames={{ primary: "custom-primary-class" }}
+      >
+        Click me
+      </Button>,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("custom-primary-class");
+    expect(button).not.toHaveClass("runko-button--primary");
+  });
+
+  it("uses default variant class when variantClassNames not provided for variant", () => {
+    const { container } = render(
+      <Button
+        variant="primary"
+        variantClassNames={{ secondary: "custom-secondary" }}
+      >
+        Click me
+      </Button>,
+    );
+    const button = container.querySelector("button");
+    expect(button).toHaveClass("runko-button--primary");
+    expect(button).not.toHaveClass("custom-secondary");
+  });
+
   it("forwards ref correctly", () => {
     const ref = React.createRef<HTMLButtonElement>();
     render(<Button ref={ref}>Click me</Button>);

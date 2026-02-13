@@ -1,23 +1,36 @@
 import type { ComponentProps } from "react";
 import { cn } from "../utils/cn";
+import type { ButtonVariant } from "../types";
+
+export type ButtonVariantClassNames = Partial<Record<ButtonVariant, string>>;
 
 export interface ButtonProps extends ComponentProps<"button"> {
   /**
    * Button variant for semantic styling
    */
-  variant?: "primary" | "secondary" | "danger";
+  variant?: ButtonVariant;
+  /**
+   * Custom class names for each variant state
+   */
+  variantClassNames?: ButtonVariantClassNames;
 }
 
 /**
  * Button component - A basic button element with minimal styling
  * Layout and spacing should be handled by the parent
  */
-export function Button({ variant, className, ...props }: ButtonProps) {
+export function Button({
+  variant,
+  variantClassNames,
+  className,
+  ...props
+}: ButtonProps) {
   return (
     <button
       className={cn(
         "runko-button",
-        variant && `runko-button--${variant}`,
+        variant &&
+          (variantClassNames?.[variant] || `runko-button--${variant}`),
         className,
       )}
       {...props}

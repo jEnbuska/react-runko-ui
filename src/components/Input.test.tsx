@@ -22,6 +22,27 @@ describe("Input", () => {
     expect(input).toHaveClass("runko-input--error");
   });
 
+  it("applies custom variant class names", () => {
+    const { container } = render(
+      <Input
+        variant="error"
+        variantClassNames={{ error: "custom-error-class" }}
+      />,
+    );
+    const input = container.querySelector("input");
+    expect(input).toHaveClass("custom-error-class");
+    expect(input).not.toHaveClass("runko-input--error");
+  });
+
+  it("uses default variant class when variantClassNames not provided for variant", () => {
+    const { container } = render(
+      <Input variant="error" variantClassNames={{ success: "custom-success" }} />,
+    );
+    const input = container.querySelector("input");
+    expect(input).toHaveClass("runko-input--error");
+    expect(input).not.toHaveClass("custom-success");
+  });
+
   it("forwards ref correctly", () => {
     const ref = React.createRef<HTMLInputElement>();
     render(<Input ref={ref} />);
