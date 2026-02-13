@@ -4,7 +4,7 @@
     display: block;
     font-family: var(--runko-font-main);
     font-size: 0.875rem;
-    line-height: var(--runko-line-height);
+    line-height: var(--runko-line-height-form-field);
     color: var(--runko-error);
     margin-top: 0.25rem;
   }

@@ -6,7 +6,7 @@
     display: block;
     font-family: var(--runko-font-main);
     font-size: 0.875rem;
-    line-height: var(--runko-line-height);
+    line-height: var(--runko-line-height-small);
     color: var(--runko-on-primary);
     background-color: var(--runko-text);
     padding: 0.5rem 0.75rem;

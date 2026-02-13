@@ -24,10 +24,12 @@ export function Button({
   variant,
   variantClassNames,
   className,
+  type = 'button',
   ...props
 }: ButtonProps) {
   return (
     <button
+      type={type}
       className={cn(
         "runko-button",
         variant &&
