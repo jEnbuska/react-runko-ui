@@ -2,8 +2,12 @@
  * Sync the browser's theme-color meta tag with the CSS variable.
  * This ensures the mobile address bar matches the UI theme dynamically.
  *
- * Note: OKLCH colors are converted to approximate hex values for
- * better browser compatibility with the theme-color meta tag.
+ * Note: Most modern browsers can handle OKLCH colors in meta theme-color tags,
+ * but older browsers may not support it. The initial hex value in the HTML
+ * serves as a fallback. For maximum compatibility in production apps, you may
+ * want to convert the OKLCH value to hex/RGB format.
+ *
+ * This is primarily a convenience feature for development and modern browsers.
  */
 export function syncBrowserThemeColor() {
   const root = document.documentElement;
@@ -16,8 +20,8 @@ export function syncBrowserThemeColor() {
   );
 
   if (meta && primaryColor) {
-    // For OKLCH colors, we use the CSS variable as-is
-    // Modern browsers support it, older browsers fall back to initial value
+    // Set the computed value directly
+    // Modern browsers support OKLCH, older browsers will use the fallback hex value
     meta.content = primaryColor;
   }
 }

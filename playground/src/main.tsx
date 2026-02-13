@@ -3,13 +3,9 @@ import { createRoot } from "react-dom/client";
 import App from "./App.tsx";
 import { syncBrowserThemeColor } from "./utils/syncThemeColor";
 
-// Sync theme-color meta tag on load
-window.addEventListener("DOMContentLoaded", syncBrowserThemeColor);
-
-// Also sync immediately if DOM is already loaded
-if (document.readyState !== "loading") {
-  syncBrowserThemeColor();
-}
+// Sync theme-color meta tag immediately
+// Modern browsers running this as a module script will have DOM already loaded
+syncBrowserThemeColor();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
