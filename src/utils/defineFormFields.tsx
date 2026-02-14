@@ -1,6 +1,14 @@
-import { useId, type ComponentType, type ReactNode, type ComponentProps } from "react";
+import {
+  useId,
+  type ComponentType,
+  type ReactNode,
+  type ComponentProps,
+} from "react";
 import type { FormFieldDirection } from "../types";
-import type { FormFieldProps } from "../components/FormField/FormField";
+import {
+  FormField,
+  type FormFieldProps,
+} from "../components/FormField/FormField";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyComponent = ComponentType<any>;
@@ -29,10 +37,11 @@ export interface FieldWrapperProps {
   success?: boolean;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function defineFormFields<TComponents extends Record<string, ComponentType<any>>>(
+export function defineFormFields<
+  TComponents extends Record<string, ComponentType<any>>,
+>(
   options: DefineFormFieldsOptions,
-  components: TComponents
+  components: TComponents,
 ): {
   [K in keyof TComponents]: ComponentType<
     ComponentProps<TComponents[K]> & FieldWrapperProps
@@ -80,7 +89,9 @@ export function defineFormFields<TComponents extends Record<string, ComponentTyp
 
       // Get className based on direction
       const className =
-        direction === "vertical" ? classNames?.vertical : classNames?.horizontal;
+        direction === "vertical"
+          ? classNames?.vertical
+          : classNames?.horizontal;
 
       return (
         <FormField

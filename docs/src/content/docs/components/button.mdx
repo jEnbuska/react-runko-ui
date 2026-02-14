@@ -3,7 +3,7 @@ title: Button
 description: Button component for user interactions
 ---
 
-import { Tabs, TabItem } from '@astrojs/starlight/components';
+import { Tabs, TabItem } from "@astrojs/starlight/components";
 
 ## Button
 
@@ -12,7 +12,7 @@ A basic button element with optional variants and full HTML button attributes su
 ## Import
 
 ```jsx
-import { Button } from 'react-runko-ui';
+import { Button } from "react-runko-ui";
 ```
 
 ## Basic Usage
@@ -31,41 +31,86 @@ The Button component supports three variants for different semantic meanings:
     <Button variant="primary">Primary Button</Button>
     ```
   </TabItem>
+  <TabItem label="Primary disabled">
+    ```jsx
+    <Button variant="primary" disabled>
+      Primary Disabled Button
+    </Button>
+    ```
+  </TabItem>
   <TabItem label="Secondary">
     ```jsx
     <Button variant="secondary">Secondary Button</Button>
     ```
   </TabItem>
-  <TabItem label="Danger">
+  <TabItem label="Secondary disabled">
     ```jsx
-    <Button variant="danger">Danger Button</Button>
+    <Button variant="secondary" disabled>
+      Secondary Disabled Button
+    </Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger primary">
+    ```jsx
+    <Button danger variant="primary">
+      Danger Button
+    </Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger primary disabled">
+    ```jsx
+    <Button danger disabled variant="primary">
+      Secondary Disabled Button
+    </Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger secondary">
+    ```jsx
+    <Button danger>Danger primaryButton</Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger secondary disabled">
+    ```jsx
+    <Button danger disabled>
+      Danger secondary disabled
+    </Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger text">
+    ```jsx
+    <Button danger variant="text">
+      Danger Button
+    </Button>
+    ```
+  </TabItem>
+  <TabItem label="Danger text disabled">
+    ```jsx
+    <Button danger disabled variant="text">
+      Secondary Disabled Button
+    </Button>
     ```
   </TabItem>
 </Tabs>
 
 ## Props
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `variant` | `'primary' \| 'secondary' \| 'danger'` | - | Visual variant of the button |
-| `...props` | `ButtonHTMLAttributes` | - | All standard HTML button attributes |
+| Prop       | Type                                   | Default | Description                         |
+| ---------- | -------------------------------------- | ------- | ----------------------------------- |
+| `variant`  | `'primary' \| 'secondary' \| 'danger'` | -       | Visual variant of the button        |
+| `...props` | `ButtonHTMLAttributes`                 | -       | All standard HTML button attributes |
 
 ## Examples
 
 ### With onClick Handler
 
 ```jsx
-<Button onClick={() => console.log('Clicked!')}>
-  Click me
-</Button>
+<Button onClick={() => console.log("Clicked!")}>Click me</Button>
 ```
 
 ### Disabled State
 
 ```jsx
-<Button disabled>
-  Disabled Button
-</Button>
+<Button disabled>Disabled Button</Button>
 ```
 
 ### With Type
@@ -89,9 +134,7 @@ Override the default styles with your own CSS:
 ```
 
 ```jsx
-<Button className="my-button">
-  Custom Styled Button
-</Button>
+<Button className="my-button">Custom Styled Button</Button>
 ```
 
 ## CSS Classes
@@ -104,6 +147,7 @@ Override the default styles with your own CSS:
 ## Accessibility
 
 The Button component:
+
 - Supports keyboard navigation
 - Has focus-visible styles
 - Properly handles disabled state

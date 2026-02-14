@@ -10,7 +10,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: var(--runko-bg);
   color: var(--runko-text);
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
 .playground {
@@ -27,7 +29,10 @@ body {
   border-radius: 12px;
   box-shadow: var(--runko-shadow-sm);
   position: relative;
-  transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
+  transition:
+    background 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s;
 }
 
 .header h1 {
@@ -48,7 +53,7 @@ body {
 
 .demo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
   gap: 2rem;
   max-width: 1400px;
   margin: 0 auto;
@@ -60,7 +65,11 @@ body {
   border-radius: 12px;
   border: 1px solid var(--runko-border);
   box-shadow: var(--runko-shadow-sm);
-  transition: transform 0.2s, box-shadow 0.2s, background 0.3s, border-color 0.3s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s,
+    background 0.3s,
+    border-color 0.3s;
 }
 
 .demo-section:hover {
@@ -78,7 +87,9 @@ body {
   color: var(--runko-text);
   border-bottom: 2px solid var(--runko-border);
   padding-bottom: 0.5rem;
-  transition: color 0.3s, border-color 0.3s;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
 }
 
 .demo-content {
@@ -94,8 +105,8 @@ body {
 }
 
 .button-group {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 1rem;
 }
 
@@ -121,7 +132,9 @@ body {
   border-radius: var(--runko-radius);
   font-weight: 500;
   color: var(--runko-text);
-  transition: background 0.3s, color 0.3s;
+  transition:
+    background 0.3s,
+    color 0.3s;
 }
 
 /* CN Demo Styles */
@@ -324,7 +337,9 @@ body {
   font-size: 1.2rem;
   border-bottom: 2px solid var(--runko-border);
   padding-bottom: 0.5rem;
-  transition: color 0.3s, border-color 0.3s;
+  transition:
+    color 0.3s,
+    border-color 0.3s;
 }
 
 .helper-demo h4 {

@@ -16,6 +16,7 @@ import {
 } from "react-runko-ui";
 import { ThemeSwitch } from "./components/ThemeSwitch";
 import "./App.css";
+import { ButtonsSection } from "../../../react-runko-ui/src/sections/ButtonsSection.tsx";
 
 function App() {
   const [inputValue, setInputValue] = useState("");
@@ -38,26 +39,7 @@ function App() {
 
       <div className="demo-grid">
         {/* Buttons Section */}
-        <section className="demo-section">
-          <h2>Buttons</h2>
-          <div className="demo-content">
-            <div className="button-group">
-              <Button variant="primary" onClick={() => alert("Primary!")}>
-                Primary Button
-              </Button>
-              <Button variant="secondary" onClick={() => alert("Secondary!")}>
-                Secondary Button
-              </Button>
-              <Button variant="danger" onClick={() => alert("Danger!")}>
-                Danger Button
-              </Button>
-              <Button variant="text" onClick={() => alert("Text!")}>
-                Text Button
-              </Button>
-              <Button disabled>Disabled Button</Button>
-            </div>
-          </div>
-        </section>
+        <ButtonsSection />
 
         {/* Inputs Section */}
         <section className="demo-section">
@@ -270,19 +252,23 @@ function App() {
                 className={cn(
                   "demo-box",
                   showSuccess && "success",
-                  showError && "error"
+                  showError && "error",
                 )}
               >
                 <p>
                   <strong>Applied classes:</strong>
                 </p>
                 <code>
-                  cn("demo-box", {showSuccess ? "true" : "false"} &&
-                  "success", {showError ? "true" : "false"} && "error")
+                  cn("demo-box", {showSuccess ? "true" : "false"} && "success",{" "}
+                  {showError ? "true" : "false"} && "error")
                 </code>
                 <p>
                   <strong>Result:</strong> "
-                  {cn("demo-box", showSuccess && "success", showError && "error")}
+                  {cn(
+                    "demo-box",
+                    showSuccess && "success",
+                    showError && "error",
+                  )}
                   "
                 </p>
               </div>
@@ -295,8 +281,8 @@ function App() {
           <h2>VariantClassNames Feature Demo</h2>
           <div className="demo-content">
             <p>
-              Components now support custom className mapping for variants via the{" "}
-              <code>variantClassNames</code> prop:
+              Components now support custom className mapping for variants via
+              the <code>variantClassNames</code> prop:
             </p>
 
             <div className="variant-demo">
@@ -385,15 +371,13 @@ function App() {
                 <h4>💡 Key Points:</h4>
                 <ul>
                   <li>
-                    <code>variantClassNames</code> allows you to override default
-                    variant classes
+                    <code>variantClassNames</code> allows you to override
+                    default variant classes
                   </li>
                   <li>
                     Perfect for integrating with CSS frameworks like Tailwind
                   </li>
-                  <li>
-                    Falls back to default class if variant not in mapping
-                  </li>
+                  <li>Falls back to default class if variant not in mapping</li>
                   <li>Fully type-safe with TypeScript</li>
                   <li>100% backward compatible - optional prop</li>
                 </ul>
@@ -428,17 +412,17 @@ function App() {
                   </FieldError>
                 )}
                 <div style={{ marginTop: "1rem" }}>
-                  <Button
-                    onClick={() => setShowError(!showError)}
-                    variant="secondary"
-                  >
+                  <Button onClick={() => setShowError(!showError)}>
                     Toggle Error State
                   </Button>
                 </div>
               </div>
 
               <h3 style={{ marginTop: "2rem" }}>Tooltip Component (New!)</h3>
-              <p>The new Tooltip component automatically handles positioning and visibility:</p>
+              <p>
+                The new Tooltip component automatically handles positioning and
+                visibility:
+              </p>
               <div
                 style={{
                   display: "flex",
@@ -450,7 +434,7 @@ function App() {
                 <div>
                   <p>Top (default):</p>
                   <Tooltip content="This tooltip appears on top" position="top">
-                    <Button variant="secondary">Hover me</Button>
+                    <Button>Hover me</Button>
                   </Tooltip>
                 </div>
                 <div>
@@ -459,7 +443,7 @@ function App() {
                     content="This tooltip appears on bottom"
                     position="bottom"
                   >
-                    <Button variant="secondary">Hover me</Button>
+                    <Button>Hover me</Button>
                   </Tooltip>
                 </div>
                 <div>
@@ -468,7 +452,7 @@ function App() {
                     content="This tooltip appears on left"
                     position="left"
                   >
-                    <Button variant="secondary">Hover me</Button>
+                    <Button>Hover me</Button>
                   </Tooltip>
                 </div>
                 <div>
@@ -477,7 +461,7 @@ function App() {
                     content="This tooltip appears on right"
                     position="right"
                   >
-                    <Button variant="secondary">Hover me</Button>
+                    <Button>Hover me</Button>
                   </Tooltip>
                 </div>
               </div>
@@ -569,12 +553,7 @@ function App() {
                   <Label htmlFor="lastName" required>
                     Last Name
                   </Label>
-                  <Input
-                    id="lastName"
-                    type="text"
-                    placeholder="Doe"
-                    required
-                  />
+                  <Input id="lastName" type="text" placeholder="Doe" required />
                 </div>
               </div>
 
@@ -618,9 +597,7 @@ function App() {
               </div>
 
               <div className="form-actions">
-                <Button type="reset" variant="secondary">
-                  Reset
-                </Button>
+                <Button type="reset">Reset</Button>
                 <Button type="submit" variant="primary">
                   Submit Form
                 </Button>

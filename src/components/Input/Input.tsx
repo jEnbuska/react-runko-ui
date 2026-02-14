@@ -1,5 +1,5 @@
 import type { ComponentProps } from "react";
-import { cn } from "../../utils/cn";
+import { cn } from "../../utils";
 import type { RunkoVariant } from "../../types";
 import "./Input.css";
 
@@ -13,7 +13,8 @@ export interface InputProps extends ComponentProps<"input"> {
   /**
    * Custom class names for each variant state
    */
-  variantClassNames?: InputVariantClassNames;
+  successClassName: string;
+  errorClassName: string;
 }
 
 /**

@@ -11,18 +11,12 @@
     cursor: pointer;
     border: 1px solid transparent;
     border-radius: var(--runko-radius);
-    background-color: transparent;
-    color: var(--runko-text);
-    transition: all 0.15s ease-in-out;
-  }
-
-  :where(.runko-button:hover) {
-    opacity: 0.8;
-  }
-
-  :where(.runko-button:focus-visible) {
-    outline: 2px solid var(--runko-focus-ring);
-    outline-offset: 2px;
+    --runko-button-border: var(--runko-primary);
+    --runko-button-bg: transparent;
+    --runko-button-text: var(--runko-primary);
+    color: var(--runko-button-text);
+    background: var(--runko-button-bg);
+    border: 1px solid var(--runko-button-border);
   }
 
   :where(.runko-button:disabled) {
@@ -32,41 +26,32 @@
 
   /* Variant: Primary */
   :where(.runko-button--primary) {
-    background-color: var(--runko-primary);
-    color: var(--runko-on-primary);
-    border-color: var(--runko-primary);
+    --runko-button-bg: var(--runko-primary);
+    --runko-button-text: var(--runko-on-primary);
   }
 
-  :where(.runko-button--primary:hover:not(:disabled)) {
-    background-color: var(--runko-primary-hover);
-    border-color: var(--runko-primary-hover);
-    opacity: 1;
-  }
-
-  /* Variant: Secondary */
-  :where(.runko-button--secondary) {
-    background-color: var(--runko-text-muted);
-    color: var(--runko-on-primary);
-    border-color: var(--runko-text-muted);
-  }
-
-  /* Variant: Danger */
   :where(.runko-button--danger) {
-    background-color: var(--runko-error);
-    color: var(--runko-on-primary);
-    border-color: var(--runko-error);
+    --runko-primary: var(--runko-error);
   }
 
-  :where(.runko-button--danger:hover:not(:disabled)) {
-    background-color: var(--runko-error-hover);
-    border-color: var(--runko-error-hover);
-    opacity: 1;
+  :where(.runko-button--success) {
+    --runko-primary: var(--runko-success);
   }
 
   /* Variant: Text */
   :where(.runko-button--text) {
-    background-color: transparent;
-    color: var(--runko-text);
-    border-color: transparent;
+    --runko-button-text: var(--runko-primary);
+    --runko-button-bg: transparent;
+    --runko-button-border: transparent;
+  }
+
+  :where(.runko-button:focus-visible) {
+    outline: 2px solid var(--runko-primary);
+    outline-offset: 2px;
+  }
+  :where(.runko-button:hover:not(:disabled)) {
+    background-color: oklch(from var(--runko-button-bg) calc(l - 0.1) c h);
+    color: oklch(from var(--runko-button-text) calc(l - 0.1) c h);
+    border-color: oklch(from var(--runko-button-border) calc(l - 0.1) c h);
   }
 }
